@@ -19,8 +19,8 @@ Element attributes:
 - `line-width`: defines the width/thickness of the line as an integer *(default = 2)*
 - `curve`: toggles applying curves (cardinal splines) to the line *(default = true)*
 - `endpoint`: toggles the display of a point at the end of the line *(default = true)*
-- `color`: defines the color of the line *(default = black)*
-- `endpoint-color`: defines the color of the endpoint *(default = red)*
+- `color`: defines the color of the line *(default = currentColor)*
+- `endpoint-color`: defines the color of the endpoint *(default = LinkText)*
 
 ## Learn more
 

@@ -38,7 +38,7 @@
             this.curve = this.getAttribute("curve") !== "false";
             this.endpoint = this.getAttribute("endpoint") !== "false";
             this.color = this.getAttribute("color") || "currentColor";
-            this.endpointColor = this.getAttribute("endpoint-color") || "red";
+            this.endpointColor = this.getAttribute("endpoint-color") || "LinkText";
 
             this.appendChild(this.render(this.values.match(/\d+/g)));
         }

@@ -1,0 +1,21 @@
+{
+  "name": "@chrisburnell/spark-line",
+  "version": "1.0.0",
+  "description": "Turn any array of integers into a fun little chart",
+  "main": "spark-line.js",
+  "scripts": {},
+  "license": "MIT",
+  "author": "Chris Burnell",
+  "homepage": "https://github.com/chrisburnell/spark-line#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/chrisburnell/spark-line.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisburnell/spark-line/issues"
+  },
+  "keywords": [
+    "js",
+    "web component"
+  ]
+}

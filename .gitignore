@@ -1,0 +1,30 @@
+# Folder view configuration files
+_Store
+.DS_Store*
+Desktop.ini
+Icon
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# NPM
+node_modules
+
+# Lockfiles
+*.lock
+
+# Git Config
+.gitconfig
+
+# Test File
+*.css

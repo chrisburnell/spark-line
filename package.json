@@ -1,6 +1,6 @@
 {
   "name": "@chrisburnell/spark-line",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Turn any array of integers into a fun little chart",
   "main": "spark-line.js",
   "scripts": {},

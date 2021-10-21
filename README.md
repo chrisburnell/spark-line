@@ -22,6 +22,10 @@ Element attributes:
 - `color`: defines the color of the line *(default = black)*
 - `endpoint-color`: defines the color of the endpoint *(default = red)*
 
+## Learn more
+
+I wrote more about **spark-line** here: [https://chrisburnell.com/spark-line/](https://chrisburnell.com/spark-line/).
+
 ## Authors
 
 So far, it’s just myself, [Chris Burnell](https://chrisburnell.com), but I welcome collaborators with ideas to bring to the table!

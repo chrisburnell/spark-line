@@ -13,6 +13,10 @@ Include `spark-line.js` in your page however you like (as-is, as part of a build
 
 Use `<spark-line>` in your HTML!
 
+```html
+<spark-line values="1,2,3,5,8,13,21"></spark-line>
+```
+
 Element attributes:
 
 - `values`: comma-delimited string of integers *(required)*
@@ -22,9 +26,9 @@ Element attributes:
 - `color`: defines the color of the line *(default = currentColor)*
 - `endpoint-color`: defines the color of the endpoint *(default = LinkText)*
 
-## Learn more
+## Examples and more
 
-I wrote more about **spark-line** here: [https://chrisburnell.com/spark-line/](https://chrisburnell.com/spark-line/).
+I wrote more about **spark-line** and laid out some examples here: [https://chrisburnell.com/spark-line/](https://chrisburnell.com/spark-line/).
 
 ## Authors
 

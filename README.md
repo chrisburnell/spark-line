@@ -1,4 +1,4 @@
-# Sparkline
+# spark-line
 
 > Turn any array of integers into a fun little chart.
 

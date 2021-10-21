@@ -45,7 +45,6 @@
 
         render(values) {
             const canvas = document.createElement("canvas");
-            canvas.className = "sparkline";
             canvas.width = this.width;
             canvas.height = this.height;
             canvas.tabIndex = "0";

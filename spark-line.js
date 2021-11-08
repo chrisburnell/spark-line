@@ -16,7 +16,7 @@
         }
 
         static get observedAttributes() {
-            return ["values", "width", "height", "line-width", "curve", "endpoint", "color", "endpoint-color"];
+            return ["values", "width", "height", "line-width", "curve", "endpoint", "color", "endpoint-color", "start", "end"];
         }
 
         attributeChangedCallback(name, oldValue, newValue) {
@@ -39,8 +39,22 @@
             this.endpoint = this.getAttribute("endpoint") !== "false";
             this.color = this.getAttribute("color") || "currentColor";
             this.endpointColor = this.getAttribute("endpoint-color") || this.color;
+            this.startLabel = this.getAttribute("start-label");
+            this.endLabel = this.getAttribute("end-label");
+
+            if (this.startLabel) {
+                const startElement = document.createElement("span");
+                startElement.textContent = this.startLabel;
+                this.appendChild(startElement);
+            }
 
             this.appendChild(this.render(this.values.match(/\d+/g)));
+
+            if (this.endLabel) {
+                const endElement = document.createElement("span");
+                endElement.textContent = this.endLabel;
+                this.appendChild(endElement);
+            }
         }
 
         render(values) {

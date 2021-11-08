@@ -25,6 +25,8 @@ Element attributes:
 - `endpoint`: toggles the display of a point at the end of the line *(default = true)*
 - `color`: defines the color of the line *(default = currentColor)*
 - `endpoint-color`: defines the color of the endpoint *(defaults to whatever color is defined as)*
+- `start-label`: creates a label before the chart
+- `end-label`: creates a label after the chart
 
 ## Examples and more
 

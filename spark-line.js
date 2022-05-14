@@ -47,7 +47,7 @@ const sparkline = () => {
                 this.lineWidth = parseFloat(this.getAttribute("line-width")) || 2
                 this.curve = this.getAttribute("curve") !== "false"
                 this.endpoint = this.getAttribute("endpoint") !== "false"
-                this.color = this.getAttribute("color") || "currentColor"
+                this.color = this.getAttribute("color") || window.getComputedStyle(this).getPropertyValue("color")
                 this.endpointColor = this.getAttribute("endpoint-color") || this.color
                 this.startLabel = this.getAttribute("start-label")
                 this.endLabel = this.getAttribute("end-label")

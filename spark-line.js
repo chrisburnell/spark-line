@@ -26,11 +26,19 @@ const sparkline = () => {
             }
 
             static get observedAttributes() {
-                return ["values", "width", "height", "line-width", "curve", "endpoint", "color", "endpoint-color", "start", "end"]
+                return ["values", "points", "colors", "width", "height", "line-width", "curve", "endpoint", "color", "endpoint-color", "start", "end"]
             }
 
-            attributeChangedCallback(name, oldValue, newValue) {
+            attributeChangedCallback() {
                 this.init()
+            }
+
+            drawPoint(ctx, x, y, color, sizeMultiplier) {
+                ctx.moveTo(x, y)
+                ctx.beginPath()
+                ctx.fillStyle = color
+                ctx.arc(x - (this.lineWidth * sizeMultiplier) / 2, y, this.lineWidth * sizeMultiplier * 1.5, 0, Math.PI * 2)
+                ctx.fill()
             }
 
             async init() {
@@ -51,6 +59,8 @@ const sparkline = () => {
                 this.endpointColor = this.getAttribute("endpoint-color") || this.color
                 this.startLabel = this.getAttribute("start-label")
                 this.endLabel = this.getAttribute("end-label")
+                this.points = this.getAttribute("points") || ""
+                this.colors = this.getAttribute("colors") || this.endpointColor
 
                 if (this.startLabel) {
                     const startElement = document.createElement("span")
@@ -58,7 +68,7 @@ const sparkline = () => {
                     this.appendChild(startElement)
                 }
 
-                this.appendChild(this.render(this.values.match(/\d+/g)))
+                this.appendChild(this.render([...this.values.match(/\d+/g)], this.points.match(/\d+/g) || [], [...this.colors.split(/\s*,\s*/)]))
 
                 if (this.endLabel) {
                     const endElement = document.createElement("span")
@@ -67,11 +77,11 @@ const sparkline = () => {
                 }
             }
 
-            render(values) {
+            render(values, points, colors) {
                 const canvas = document.createElement("canvas")
                 canvas.width = this.width
                 canvas.height = this.height
-                canvas.tabIndex = "0"
+                canvas.tabIndex = 0
 
                 let ctx = canvas.getContext("2d")
                 let max = Math.max.apply(Math, values)
@@ -86,28 +96,47 @@ const sparkline = () => {
 
                 let x, y
                 let coordinates = []
-                for (let i in values) {
+                values.forEach((value, i) => {
                     x = this.lineWidth + i * xStep
-                    y = this.height - this.lineWidth * 1.5 - values[i] * yStep
-                    if (this.curve) {
-                        coordinates.push(x)
-                        coordinates.push(y)
-                    } else if (i === 0) {
-                        ctx.moveTo(x, y)
-                    } else {
-                        ctx.lineTo(x, y)
+                    y = this.height - this.lineWidth * 1.5 - value * yStep
+                    coordinates.push(x)
+                    coordinates.push(y)
+                    if (!this.curve) {
+                        if (i === 0) {
+                            ctx.moveTo(x, y)
+                        } else {
+                            ctx.lineTo(x, y)
+                        }
                     }
-                }
+                })
                 if (this.curve) {
                     curve(ctx, coordinates, 0.5, 25, false)
                 }
                 ctx.stroke()
 
-                if (this.endpoint) {
-                    ctx.beginPath()
-                    ctx.fillStyle = this.endpointColor
-                    ctx.arc(x - this.lineWidth / 2, y, this.lineWidth * 1.5, 0, Math.PI * 2)
-                    ctx.fill()
+                if (points.length > 0) {
+                    let original = points
+                    points = []
+                    values.forEach((value, i) => {
+                        points.push(original[i % original.length])
+                    })
+                }
+                if (colors.length > 0) {
+                    let original = colors
+                    colors = []
+                    values.forEach((value, i) => {
+                        colors.push(original[i % original.length])
+                    })
+                }
+                if (points.length === values.length) {
+                    points.forEach((point, i) => {
+                        const color = colors.length === values.length ? colors[i] : this.endpointColor
+                        if (parseFloat(point) > 0) {
+                            this.drawPoint(ctx, coordinates[2 * i], coordinates[2 * i + 1], color, parseFloat(point))
+                        }
+                    })
+                } else if (this.endpoint) {
+                    this.drawPoint(ctx, x, y, this.endpointColor, 1)
                 }
 
                 return canvas

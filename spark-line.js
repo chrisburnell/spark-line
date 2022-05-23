@@ -68,7 +68,7 @@ const sparkline = () => {
                     this.appendChild(startElement)
                 }
 
-                this.appendChild(this.render([...this.values.match(/\d+/g)], this.points.match(/\d+/g) || [], [...this.colors.split(/\s*,\s*/)]))
+                this.appendChild(this.render([...this.values.match(/\d+/g)], this.points.match(/\d+/g) || [], [...this.colors.split(/(?![^(]*\)),\s*/)]))
 
                 if (this.endLabel) {
                     const endElement = document.createElement("span")
@@ -115,18 +115,18 @@ const sparkline = () => {
                 ctx.stroke()
 
                 if (points.length > 0) {
-                    let original = points
+                    let originalPoints = points
                     points = []
                     values.forEach((value, i) => {
-                        points.push(original[i % original.length])
+                        points.push(originalPoints[i % originalPoints.length])
                     })
-                }
-                if (colors.length > 0) {
-                    let original = colors
-                    colors = []
-                    values.forEach((value, i) => {
-                        colors.push(original[i % original.length])
-                    })
+                    if (colors.length > 0) {
+                        let originalColors = colors
+                        colors = []
+                        values.forEach((value, i) => {
+                            colors.push(originalColors[i % originalColors.length])
+                        })
+                    }
                 }
                 if (points.length === values.length) {
                     points.forEach((point, i) => {
@@ -136,7 +136,7 @@ const sparkline = () => {
                         }
                     })
                 } else if (this.endpoint) {
-                    this.drawPoint(ctx, x, y, this.endpointColor, 1)
+                    this.drawPoint(ctx, x, y, this.colors, 1)
                 }
 
                 return canvas

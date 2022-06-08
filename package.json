@@ -4,7 +4,7 @@
   "description": "Turn any array of integers into a fun little chart",
   "main": "spark-line.js",
   "scripts": {},
-  "license": "MIT",
+  "license": "CC0",
   "author": "Chris Burnell",
   "homepage": "https://github.com/chrisburnell/spark-line#readme",
   "repository": {

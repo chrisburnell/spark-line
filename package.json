@@ -1,10 +1,9 @@
 {
   "name": "@chrisburnell/spark-line",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Turn any array of integers into a fun little chart",
   "author": "Chris Burnell",
   "license": "CC0",
-  "homepage": "https://chrisburnell.com/spark-line/",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/chrisburnell/spark-line.git"
@@ -12,15 +11,18 @@
   "bugs": {
     "url": "https://github.com/chrisburnell/spark-line/issues"
   },
+  "keywords": [
+    "chart",
+    "javascript",
+    "js",
+    "sparkline",
+    "web component"
+  ],
   "devDependencies": {
     "eslint": "^8.7.0"
   },
-  "main": "spark-line.js",
+  "dependencies": {},
   "scripts": {
     "test": "eslint spark-line.js"
-  },
-  "keywords": [
-    "js",
-    "web component"
-  ]
+  }
 }

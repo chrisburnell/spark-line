@@ -34,6 +34,10 @@ Element attributes:
 
 I wrote more about **spark-line** and laid out some examples here: [https://chrisburnell.com/spark-line/](https://chrisburnell.com/spark-line/).
 
-## Authors
+## Contributing
 
-So far, it’s just myself, [Chris Burnell](https://chrisburnell.com), but I welcome collaborators with ideas to bring to the table!
+Contributions of all kinds are welcome! Please [submit an Issue on GitHub](https://github.com/chrisburnell/spark-line/issues) or [get in touch with me](https://chrisburnell.com/about/#contact) if you’d like to do so.
+
+## License
+
+This project is licensed under a CC0 license.

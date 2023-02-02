@@ -1,6 +1,6 @@
 {
   "name": "@chrisburnell/spark-line",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Turn any array of integers into a fun little chart",
   "author": "Chris Burnell",
   "license": "CC0",
@@ -22,7 +22,8 @@
     "eslint": "^8.7.0"
   },
   "dependencies": {},
+  "main": "spark-line.js",
   "scripts": {
-    "test": "eslint spark-line.js"
+    "lint": "eslint spark-line.js"
   }
 }

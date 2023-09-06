@@ -77,7 +77,8 @@ class Sparkline extends HTMLElement {
 		canvas.tabIndex = 0
 
 		let ctx = canvas.getContext("2d")
-		let max = Math.max.apply(Math, values)
+		// If the max is zero -- i.e. all values are 0 we don't want to divide-by-zero.
+		let max = Math.max.apply(Math, values) || 1;
 		let xStep = (this.width - this.lineWidth * 2) / (values.length - 1)
 		let yStep = (this.height - this.lineWidth * 3) / max
 

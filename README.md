@@ -2,6 +2,12 @@
 
 > Turn any array of integers into a fun little chart.
 
+## Check out `<svg-sparkline>` instead?
+
+I probably won't be updating this very much anymore, as I've since built [`<svg-sparkline>`](https://github.com/chrisburnell/svg-sparkline), another Web Component for building sparklines but using SVG instead of Canvas!
+
+It's been built with a lot more care, and I recommend you use it instead of `<spark-line>`.
+
 ## Installation
 
 -   **With npm:** `npm install @chrisburnell/spark-line`
